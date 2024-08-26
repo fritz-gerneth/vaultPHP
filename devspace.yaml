@@ -1,0 +1,10 @@
+version: v2beta1
+name: funct-ion
+
+commands:
+    composer:
+        command: docker run --mount type=bind,source="$(pwd)/",target=/var/www/ion --mount type=bind,source="$HOME/.composer",target=/root/.composer -w /var/www/ion -it ghcr.io/funct/ion-wordpress/php-base:latest-dev composer
+        appendArgs: true
+    php:
+        command: docker run --mount type=bind,source="$(pwd)/",target=/var/www/ion --mount type=bind,source="$HOME/.composer",target=/root/.composer -w /var/www/ion -it ghcr.io/funct/ion-wordpress/php-base:latest-dev bash
+        appendArgs: true
