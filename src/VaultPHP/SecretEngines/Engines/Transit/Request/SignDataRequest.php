@@ -5,12 +5,9 @@ declare(strict_types=1);
 namespace VaultPHP\SecretEngines\Engines\Transit\Request;
 
 use VaultPHP\SecretEngines\Interfaces\ResourceRequestInterface;
-use VaultPHP\SecretEngines\Traits\ArrayExportTrait;
 
 final class SignDataRequest  implements ResourceRequestInterface
 {
-    use ArrayExportTrait;
-
     const HASH_ALGORITHM_SHA1 = 'sha1';
 
     const HASH_ALGORITHM_SHA2_224 = 'sha2-224';
@@ -88,5 +85,16 @@ final class SignDataRequest  implements ResourceRequestInterface
     public function getSignatureAlgorithm()
     {
         return $this->signature_algorithm;
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return [
+            'input' => $this->input,
+            'signature_algorithm' => $this->signature_algorithm
+        ];
     }
 }

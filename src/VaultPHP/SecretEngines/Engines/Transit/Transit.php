@@ -201,7 +201,7 @@ final class Transit extends AbstractSecretEngine
     {
         return $this->vaultClient->sendApiRequest(
             'POST',
-            sprintf('/v1/%s/sign/%s/%s', $this->APIPath, urlencode($signDataRequest->getKey()), $signDataRequest->getSignatureAlgorithm()),
+            sprintf('/v1/%s/sign/%s/%s', $this->APIPath, $signDataRequest->getKey(), $signDataRequest->getHashAlgorithm()),
             SignDataResponse::class,
             $signDataRequest
         );

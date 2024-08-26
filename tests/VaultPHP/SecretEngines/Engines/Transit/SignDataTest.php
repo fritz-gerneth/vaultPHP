@@ -19,12 +19,12 @@ final class SignDataTest extends AbstractSecretEngineTestCase
             'POST',
             '/v1/transit/sign/test/sha1',
             [
-                'input' => 'some-input-to-sign'
+                'input' => 'some-input-to-sign',
+                'signature_algorithm' => 'pss'
             ],
             [
                 'data' => [
                     'signature' => 'vault:v1:someHash',
-                    'signature_algorithm' => 'pcc'
                 ]
             ]
         );

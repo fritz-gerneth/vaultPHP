@@ -22,9 +22,9 @@ abstract class AbstractSecretEngineTestCase extends TestCase
             ->expects($this->once())
             ->method('sendRequest')
             ->with($this->callback(function(RequestInterface $request) use ($expectedMethod, $expectedPath, $expectedData) {
-                $this->assertEquals($request->getMethod(), $expectedMethod);
-                $this->assertEquals($request->getUri()->getPath(), $expectedPath);
-                $this->assertEquals($request->getBody()->getContents(), json_encode($expectedData));
+                $this->assertEquals($request->getMethod(), $expectedMethod, 'Method mismatching');
+                $this->assertEquals($request->getUri()->getPath(), $expectedPath, 'URI mismatching');
+                $this->assertEquals($request->getBody()->getContents(), json_encode($expectedData), 'Request body mismatching');
                 return true;
             }))
             ->willReturn(new Response($responseStatus, [], json_encode($responseData)));
