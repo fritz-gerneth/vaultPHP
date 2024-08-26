@@ -4,15 +4,12 @@ declare(strict_types=1);
 
 namespace VaultPHP\SecretEngines\Engines\Transit\Request;
 
-use VaultPHP\SecretEngines\Interfaces\NamedRequestInterface;
 use VaultPHP\SecretEngines\Interfaces\ResourceRequestInterface;
 use VaultPHP\SecretEngines\Traits\ArrayExportTrait;
-use VaultPHP\SecretEngines\Traits\NamedRequestTrait;
 
-final class SignDataRequest  implements ResourceRequestInterface, NamedRequestInterface
+final class SignDataRequest  implements ResourceRequestInterface
 {
     use ArrayExportTrait;
-    use NamedRequestTrait;
 
     const HASH_ALGORITHM_SHA1 = 'sha1';
 
