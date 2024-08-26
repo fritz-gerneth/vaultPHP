@@ -16,7 +16,7 @@ final class SignDataTest extends AbstractSecretEngineTestCase
     public function testApiCall()
     {
         $client = $this->createApiClient(
-            'LIST',
+            'POST',
             '/v1/transit/sign/test/sha1',
             [
                 'input' => 'some-input-to-sign'
